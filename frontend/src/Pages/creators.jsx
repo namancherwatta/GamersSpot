@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
+import {BACKEND_URL} from "../utils.js"
 function Creators() {
   const [creators, setCreators] = useState([]);
   console.log(creators);
@@ -8,7 +8,7 @@ function Creators() {
     const fetchCreators = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4001/api/users/Creators",
+          BACKEND_URL+"/api/users/Creators",
           {
             withCredentials: true,
           }

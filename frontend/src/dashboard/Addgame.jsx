@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import toast from "react-hot-toast"
 import axios from 'axios'
-
+import {BACKEND_URL} from "../utils.js"
 
 export default function Addgame() {
      const [gamename,setGamename]=useState("")
@@ -20,7 +20,7 @@ export default function Addgame() {
        formData.append('about',about)
        formData.append('gameImage',gameImage)
        try {
-        const {data} =await axios.post("http://localhost:4001/api/games/addGame",formData,{
+        const {data} =await axios.post(BACKEND_URL+"/api/games/addGame",formData,{
           withCredentials:true,
           headers:{"Content-Type":"multipart/form-data"}
         })

@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaArrowLeft } from "react-icons/fa";
+import {BACKEND_URL} from "../utils.js"
 export default function sidebar({setComponent}) {
      const {profile,setIsAuthenticated}=useAuth()
      const [show,setShow]=useState(false)
@@ -21,7 +22,7 @@ export default function sidebar({setComponent}) {
      const handleLogout=async(e)=>{
         e.preventDefault();
         try {
-            const data= await axios.get("http://localhost:4001/api/users/logout",{withCredentials:true})
+            const data= await axios.get(BACKEND_URL+"/api/users/logout",{withCredentials:true})
             toast.success("Logged out");
             setIsAuthenticated(false)
             navigateTo("/");

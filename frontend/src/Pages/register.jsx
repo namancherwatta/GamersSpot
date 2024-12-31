@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useAuth } from '../context/authprovider'
 import toast from 'react-hot-toast'
+import { BACKEND_URL } from '../utils'
 export default function register() {
     const {isAuthenticated,setIsAuthenticated}=useAuth()
     const navigateTo=useNavigate()
@@ -22,7 +23,7 @@ export default function register() {
      formData.append('password',password)
      formData.append('role',role)
      try {
-      const {data} =await axios.post("http://localhost:4001/api/users/register",formData,{
+      const {data} =await axios.post(BACKEND_URL+"/api/users/register",formData,{
         withCredentials:true,
         headers:{"Content-Type":"multipart/form-data"}
       })

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-
+import {BACKEND_URL} from "../utils.js"
 export default function updategame() {
   const navigateTo=useNavigate();
   const {id}=useParams()
@@ -19,7 +19,7 @@ export default function updategame() {
     const fetchGame = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:4001/api/games/singleGame/${id}`,{
+          BACKEND_URL+`/api/games/singleGame/${id}`,{
             withCredentials: true,
             headers: {
               "Content-Type": "multipart/form-data",
@@ -50,7 +50,7 @@ export default function updategame() {
    formData.append('about',about)
    
    try {
-    const {data} =await axios.put(`http://localhost:4001/api/games/updGame/${id}`,formData,{
+    const {data} =await axios.put(BACKEND_URL+`/api/games/updGame/${id}`,formData,{
       withCredentials:true,
       headers:{"Content-Type":"multipart/form-data"}
     })

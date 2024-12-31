@@ -2,13 +2,14 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { Link } from 'react-router-dom'
+import {BACKEND_URL} from "../utils.js"
 
 export default function mygames() {
     const [mygames,setMyGames]=useState([])
    useEffect(()=>{
     const fetchmyGames=async()=>{
       try {
-        const {data}= await axios.get("http://localhost:4001/api/games/myGames/",{withCredentials:true})
+        const {data}= await axios.get(BACKEND_URL+"/api/games/myGames/",{withCredentials:true})
         console.log(data.myGames)
         setMyGames(data.myGames)
       } catch (error) {
@@ -20,7 +21,7 @@ export default function mygames() {
 
    const handleDelete = async (id) => {
     await axios
-      .delete(`http://localhost:4001/api/games/delGame/${id}`, {
+      .delete(BACKEND_URL+`/api/games/delGame/${id}`, {
         withCredentials: true,
       })
       .then((res) => {

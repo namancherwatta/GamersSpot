@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../context/authprovider';
 import { useNavigate } from 'react-router-dom';
+import { BACKEND_URL } from '../utils';
 
 export default function playgame() {
    const {isAuthenticated} =useAuth()
@@ -22,7 +23,7 @@ export default function playgame() {
           try {
            
             const { data } = await axios.get(
-              `http://localhost:4001/api/games/singleGame/${id}`,{
+              BACKEND_URL+`/api/games/singleGame/${id}`,{
                 withCredentials: true,
                 headers: {
                   "Content-Type": "multipart/form-data",
