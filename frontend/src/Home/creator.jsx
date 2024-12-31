@@ -8,10 +8,10 @@ export default function creator() {
   const { games } = useAuth();
   const [creators,setCreators]=useState([])
   const [topCreators, setTopCreators] = useState([]);
- 
+  const url=BACKEND_URL+"/api/users/Creators"
   useEffect(()=>{
      const fetchCreators= async ()=>{
-      const {data}=await axios.get(`/api/users/Creators`,{
+      const {data}=await axios.get(url,{
         withCredentials:true,
       })
       console.log(data)
