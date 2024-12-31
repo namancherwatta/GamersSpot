@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../context/authprovider'
 import { Link } from 'react-router-dom';
+import BACKEND_URL from "../utils"
 
 export default function creator() {
   const { games } = useAuth();
@@ -10,7 +11,7 @@ export default function creator() {
  
   useEffect(()=>{
      const fetchCreators= async ()=>{
-      const {data}=await axios.get("http://localhost:4001/api/users/Creators",{
+      const {data}=await axios.get("BACKEND_URL/api/users/Creators",{
         withCredentials:true,
       })
       console.log(data)
