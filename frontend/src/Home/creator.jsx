@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../context/authprovider'
 import { Link } from 'react-router-dom';
-import BACKEND_URL from "../utils"
+import {BACKEND_URL} from "../utils.js"
 
 export default function creator() {
   const { games } = useAuth();
