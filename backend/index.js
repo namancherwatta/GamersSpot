@@ -10,7 +10,7 @@ import { v2 as cloudinary } from "cloudinary"
 
 
 dotenv.config()
-const port = process.env.port
+const port = 10000
 const app = express()
 const mongourl=process.env.mongoURI
 
