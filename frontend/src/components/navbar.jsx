@@ -5,6 +5,7 @@ import { MdOutlineMenu } from "react-icons/md";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { BACKEND_URL } from '../utils';
 function navbar() {
  
   const {profile,isAuthenticated,setIsAuthenticated}=useAuth()
@@ -15,7 +16,7 @@ function navbar() {
   const handleLogout=async(e)=>{
     e.preventDefault();
     try {
-        const data= await axios.get("http://localhost:4001/api/users/logout",{withCredentials:true})
+        const data= await axios.get(BACKEND_URL+"/api/users/logout",{withCredentials:true})
         toast.success("Logged out");
         localStorage.removeItem("jwt");
         setIsAuthenticated(false)
