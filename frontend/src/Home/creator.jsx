@@ -11,7 +11,7 @@ export default function creator() {
  
   useEffect(()=>{
      const fetchCreators= async ()=>{
-      const {data}=await axios.get(`BACKEND_URL/api/users/Creators`,{
+      const {data}=await axios.get(`/api/users/Creators`,{
         withCredentials:true,
       })
       console.log(data)
