@@ -24,7 +24,7 @@ Gamers Spot is a website to play mini IO games and also provides a platform for 
 1. **Clone the repository:**
 
    ```sh
-   git clone <https://github.com/namancherwatta/GamersSpot>
+   git clone https://github.com/namancherwatta/GamersSpot
    cd gamersspot
    ```
 
